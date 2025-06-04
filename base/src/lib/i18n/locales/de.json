@@ -1,0 +1,204 @@
+{
+    "header": {
+      "connectWallet": "Wallet verbinden",
+      "publicSale": "H200 Public Sale kommt bald!",
+      "joinWaitlist": "Warteliste beitreten",
+      "language": {
+        "selectLanguage": "Sprache auswählen",
+        "en": "English",
+        "zh": "中文",
+        "de": "Deutsch",
+        "ja": "日本語",
+        "ko": "한국어",
+        "fil": "Filipino",
+        "vi": "Tiếng Việt",
+        "id": "Bahasa Indonesia"
+      },
+      "notifications": {
+        "title": "Benachrichtigungen",
+        "noNotifications": "Keine Benachrichtigungen",
+        "markAllRead": "Alle als gelesen markieren",
+        "clearAll": "Alle löschen",
+        "new": "Neu",
+        "earlier": "Früher",
+        "types": {
+          "info": "Information",
+          "success": "Erfolgreich",
+          "warning": "Warnung",
+          "error": "Fehler"
+        },
+        "timeAgo": {
+          "justNow": "Gerade eben",
+          "minutesAgo": "vor {minutes}m",
+          "hoursAgo": "vor {hours}h",
+          "daysAgo": "vor {days}d"
+        }
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "overview": {
+        "title": "Übersicht",
+        "stats": {
+          "totalGPUs": "Gesamte GPUs",
+          "yieldPerDay": "Rendite pro Tag",
+          "totalYield": "Gesamtrendite",
+          "avgGPUUtilization": "Durchschn. GPU-Auslastung"
+        },
+        "charts": {
+          "yieldOverview": {
+            "title": "Rendite-Übersicht",
+            "yAxisLabel": "Rendite (USD)"
+          },
+          "gpuUtilization": {
+            "title": "Durchschn. GPU-Auslastung",
+            "yAxisLabel": "Auslastung (%)"
+          }
+        }
+      },
+      "yieldTracking": {
+        "title": "Rendite-Tracking",
+        "pendingClaims": "Ausstehende Rendite",
+        "claimableYield": "Einlösbare Rendite",
+        "totalClaimed": "Gesamte Rendite",
+        "projectedYield": "Prognostizierte Rendite (30T)",
+        "yieldHistory": "Rendite-Verlauf"
+      },
+      "assetMonitoring": {
+        "title": "Asset-Überwachung",
+        "gpuGrid": "GPU-Auslastungsraster",
+        "modelNumber": "Modellnummer",
+        "location": "Standort",
+        "utilization": "Auslastung",
+        "allModels": "Alle Modelle",
+        "allLocations": "Alle Standorte",
+        "allUtilization": "Alle Auslastungen",
+        "globalTracking": {
+          "title": "Globale Überwachung",
+          "gpuCount": "GPU-Anzahl",
+          "utilization": "Auslastung",
+          "locationInfo": {
+            "title": "Standortinformationen",
+            "gpus": "GPUs",
+            "avgUtilization": "Durchschn. Auslastung"
+          }
+        },
+        "gpuDetails": {
+          "title": "GPU Details",
+          "metrics": {
+            "serialNumber": "Seriennummer",
+            "modelNumber": "Modellnummer",
+            "utilization": "Auslastung",
+            "memoryUsage": "Speichernutzung",
+            "efficiency": "Effizienz",
+            "uptime": "Betriebszeit",
+            "powerUsage": "Stromverbrauch",
+            "temperature": "Temperatur"
+          },
+          "metricsSummary": "Metriken Zusammenfassung"
+        },
+        "filters": {
+          "title": "Sortieren und Filtern",
+          "sortBy": "Sortieren nach",
+          "performanceMetric": "Leistungsmetrik",
+          "resetFilters": "Filter zurücksetzen",
+          "all": "Alle",
+          "clearAll": "Alle zurücksetzen",
+          "sort": {
+            "label": "Sortieren nach",
+            "placeholder": "Leistungsmetrik",
+            "options": {
+              "utilization": "Auslastung",
+              "efficiency": "Effizienz",
+              "memoryUsage": "Speichernutzung",
+              "powerUsage": "Stromverbrauch",
+              "uptime": "Betriebszeit"
+            }
+          },
+          "modelNumber": {
+            "label": "Modellnummer",
+            "placeholder": "Alle Modelle",
+            "options": {
+              "NVIDIA H100": "NVIDIA H100",
+              "NVIDIA A100": "NVIDIA A100",
+              "NVIDIA A40": "NVIDIA A40",
+              "NVIDIA A6000": "NVIDIA A6000",
+              "NVIDIA L40": "NVIDIA L40"
+            }
+          },
+          "location": {
+            "label": "Standort",
+            "placeholder": "Alle Standorte",
+            "options": {
+              "Provider 1": "Anbieter 1",
+              "Provider 2": "Anbieter 2",
+              "Provider 3": "Anbieter 3",
+              "Provider 4": "Anbieter 4",
+              "Provider 5": "Anbieter 5"
+            }
+          },
+          "utilization": {
+            "label": "Auslastung",
+            "placeholder": "Alle Auslastungen",
+            "options": {
+              "60": "60%",
+              "70": "70%",
+              "80": "80%",
+              "90": "90%"
+            }
+          }
+        },
+        "stats": {
+          "showing": "Zeige",
+          "of": "von",
+          "gpus": "GPUs"
+        }
+      },
+      "transactions": {
+        "title": "Transaktionen",
+        "exportTransactions": "Transaktionen exportieren",
+        "columns": {
+          "date": "Datum",
+          "action": "Aktion",
+          "amount": "Betrag",
+          "status": "Status"
+        },
+        "status": {
+          "success": "Erfolgreich",
+          "pending": "In Bearbeitung",
+          "failed": "Fehlgeschlagen"
+        }
+      },
+      "support": {
+        "title": "Support"
+      },
+      "yield": {
+        "charts": {
+          "pointInTime": "Zeitpunkt",
+          "cumulative": "Kumulativ",
+          "historicalYield": "Historische Rendite",
+          "forecastedYield": "Prognostizierte Rendite",
+          "actualCumulativeYield": "Tatsächliche kumulative Rendite",
+          "pastExpectedYield": "Vergangene erwartete Rendite",
+          "futureExpectedYield": "Zukünftig erwartete Rendite"
+        },
+        "redeem": {
+          "button": "Einlösen",
+          "redeeming": "Wird eingelöst...",
+          "success": "Rendite erfolgreich eingelöst"
+        }
+      },
+      "common": {
+        "date": "Datum",
+        "currency": "USD",
+        "loading": "Lädt...",
+        "timeframes": {
+          "1W": "1W",
+          "1M": "1M",
+          "3M": "3M",
+          "1Y": "1J",
+          "ALL": "ALLE"
+        }
+      }
+    }
+  }

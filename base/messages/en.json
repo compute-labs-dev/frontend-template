@@ -1,0 +1,8 @@
+{
+  "Greeting": "Hello!",
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "en": "English",
+    "es": "Spanish (Example)"
+  }
+} 
