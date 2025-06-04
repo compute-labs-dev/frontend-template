@@ -7,8 +7,19 @@ const ora = require('ora');
 const validateNpmPackageName = require('validate-npm-package-name');
 const path = require('path');
 const semver = require('semver');
+const { execSync } = require('child_process');
 
 const CWD = process.cwd();
+
+function getGitUserName() {
+    try {
+        const name = execSync('git config user.name').toString().trim();
+        return name;
+    } catch (e) {
+        // Silently ignore if git is not installed or user.name is not set
+        return null;
+    }
+}
 
 async function main() {
     console.log(chalk.blue('🚀 Compute Labs Project Template') + '\n');
@@ -51,7 +62,7 @@ async function main() {
         }
         process.exit(1);
     }
-    const projectName = projectNameArg; // Use the validated name
+    const projectName = projectNameArg;
     const projectPath = path.join(CWD, projectName);
 
     console.log(chalk.green(`Creating new project: ${projectName} at ${projectPath}`));
@@ -71,21 +82,47 @@ async function main() {
             console.log(chalk.cyan('Operation cancelled.'));
             process.exit(0);
         }
-        // If user chooses to overwrite, we can add cleanup logic here later if needed.
-        // For now, fs-extra's copy will overwrite files by default.
         console.log(chalk.yellow(`Proceeding with overwrite for directory: ${projectName}`));
     }
 
-    // Placeholder for next steps
-    // TODO: Interactive prompts (project description, author, Web3 option)
-    // TODO: File operations (copy base, copy optional, replace variables)
-    // TODO: Package management (update package.json, install dependencies)
+    // --- Interactive Prompts ---
+    const defaultAuthor = getGitUserName();
+    const questions = [
+        {
+            type: 'input',
+            name: 'projectDescription',
+            message: 'Project description:',
+            default: 'A new Compute Labs project',
+        },
+        {
+            type: 'input',
+            name: 'authorName',
+            message: 'Author name:',
+            default: defaultAuthor || '',
+        },
+        {
+            type: 'confirm',
+            name: 'includeWeb3',
+            message: 'Include Web3 (Solana) functionalities?',
+            default: false,
+        },
+    ];
+
+    const answers = await inquirer.prompt(questions);
+    // For now, just log the answers. They will be used later.
+    console.log(chalk.cyan('\nProject options received:'));
+    console.log(chalk.cyan(`  Description: ${answers.projectDescription}`));
+    console.log(chalk.cyan(`  Author: ${answers.authorName}`));
+    console.log(chalk.cyan(`  Include Web3: ${answers.includeWeb3 ? 'Yes' : 'No'}`));
+
+    // TODO: File operations (copy base, copy optional, replace variables using answers)
+    // TODO: Package management (update package.json, install dependencies based on answers)
     // TODO: Finalization (success message, next steps)
 
     // Simulate work for now
-    const spinner = ora('Initializing project structure (simulation)...').start();
-    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate delay
-    spinner.succeed('Project structure initialized (simulation).');
+    const spinner = ora('Processing project configuration (simulation)...').start();
+    await new Promise(resolve => setTimeout(resolve, 1500)); 
+    spinner.succeed('Project configuration processed (simulation).');
 
     console.log(chalk.green('\n✅ Project setup will continue here...'));
     console.log(`Next steps (conceptual):
@@ -96,6 +133,6 @@ async function main() {
 
 main().catch(err => {
     console.error(chalk.red('An unexpected error occurred:'));
-    console.error(err); // Log the full error for debugging
+    console.error(err);
     process.exit(1);
 }); 
