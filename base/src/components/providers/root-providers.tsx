@@ -2,17 +2,16 @@
 
 import React from 'react';
 import { ThemeProvider } from "./theme-provider";
-import ReduxProvider from "./redux-provider";
+import { Provider as ReduxProvider } from 'react-redux';
+import { store } from '@/store';
 
 interface RootProvidersProps {
   children: React.ReactNode;
-  // Add any other initial props your providers might need, e.g., for ThemeProvider
-  // initialTheme?: string;
 }
 
 export function RootProviders({ children }: Readonly<RootProvidersProps>) {
   return (
-    <ReduxProvider>
+    <ReduxProvider store={store}>
       <ThemeProvider
         attribute="class" // Corresponds to Tailwind's darkMode: 'class'
         defaultTheme="system"

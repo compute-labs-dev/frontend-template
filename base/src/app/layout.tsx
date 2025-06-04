@@ -1,6 +1,6 @@
 import { Toaster } from 'sonner';
 import type { Metadata } from 'next';
-import { RootProviders } from "@/components/common/providers/root-providers"; 
+import { RootProviders } from "@/components/providers/root-providers"; 
 import './globals.css';
 
 export const metadata: Metadata = {
