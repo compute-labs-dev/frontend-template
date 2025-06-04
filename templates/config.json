@@ -1,0 +1,14 @@
+{
+  "templates": [
+    {
+      "name": "default",
+      "description": "Standard React/Next.js application with TypeScript and Tailwind CSS",
+      "path": "../base"
+    }
+  ],
+  "company": {
+    "name": "Compute Labs",
+    "repository": "https://github.com/company/company-template-repo"
+  },
+  "nodeVersion": ">=16.0.0"
+} 

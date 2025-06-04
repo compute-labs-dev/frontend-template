@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build files
+*.log
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDE specific
+.idea/
+.vscode/
+/docs
+
+# OS specific
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional directory for built templates if we decide to pre-build them
+/dist
+/out
+
+# Temporary files
+temp/
+*.tmp 
