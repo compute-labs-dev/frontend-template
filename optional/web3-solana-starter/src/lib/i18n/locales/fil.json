@@ -1,0 +1,204 @@
+{
+    "header": {
+      "connectWallet": "Ikonekta ang Wallet",
+      "publicSale": "Malapit na ang H200 Public Sale!",
+      "joinWaitlist": "Sumali sa waitlist",
+      "language": {
+        "selectLanguage": "Pumili ng Wika",
+        "en": "English",
+        "zh": "中文",
+        "de": "Deutsch",
+        "ja": "日本語",
+        "ko": "한국어",
+        "fil": "Filipino",
+        "vi": "Tiếng Việt",
+        "id": "Bahasa Indonesia"
+      },
+      "notifications": {
+        "title": "Mga Abiso",
+        "noNotifications": "Walang mga abiso",
+        "markAllRead": "Markahan lahat bilang nabasa",
+        "clearAll": "Burahin lahat",
+        "new": "Bago",
+        "earlier": "Mas maaga",
+        "types": {
+          "info": "Impormasyon",
+          "success": "Tagumpay",
+          "warning": "Babala",
+          "error": "Error"
+        },
+        "timeAgo": {
+          "justNow": "Ngayon lang",
+          "minutesAgo": "{minutes} minuto ang nakalipas",
+          "hoursAgo": "{hours} oras ang nakalipas",
+          "daysAgo": "{days} araw ang nakalipas"
+        }
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "overview": {
+        "title": "Pangkalahatang-ideya",
+        "stats": {
+          "totalGPUs": "Kabuuang GPU",
+          "yieldPerDay": "Kita Bawat Araw",
+          "totalYield": "Kabuuang Kita",
+          "avgGPUUtilization": "Avg. na Paggamit ng GPU"
+        },
+        "charts": {
+          "yieldOverview": {
+            "title": "Pangkalahatang-ideya ng Kita",
+            "yAxisLabel": "Kita (USD)"
+          },
+          "gpuUtilization": {
+            "title": "Avg. na Paggamit ng GPU",
+            "yAxisLabel": "Paggamit (%)"
+          }
+        }
+      },
+      "yieldTracking": {
+        "title": "Pagsubaybay ng Kita",
+        "pendingClaims": "Nakabinbing Kita",
+        "claimableYield": "Maaaring Kunin na Kita", 
+        "totalClaimed": "Kabuuang Kita",
+        "projectedYield": "Inaasahang Kita (30d)",
+        "yieldHistory": "Kasaysayan ng Kita"
+      },
+      "assetMonitoring": {
+        "title": "Pagsubaybay ng Asset",
+        "gpuGrid": "Grid ng Paggamit ng GPU",
+        "modelNumber": "Numero ng Modelo",
+        "location": "Lokasyon",
+        "utilization": "Paggamit",
+        "allModels": "Lahat ng Modelo",
+        "allLocations": "Lahat ng Lokasyon",
+        "allUtilization": "Lahat ng Paggamit",
+        "globalTracking": {
+          "title": "Pandaigdigang Pagsubaybay",
+          "gpuCount": "Bilang ng GPU",
+          "utilization": "Paggamit",
+          "locationInfo": {
+            "title": "Impormasyon ng Lokasyon",
+            "gpus": "Mga GPU",
+            "avgUtilization": "Avg. na Paggamit"
+          }
+        },
+        "gpuDetails": {
+          "title": "Mga Detalye ng GPU",
+          "metrics": {
+            "serialNumber": "Serial Number",
+            "modelNumber": "Model Number",
+            "utilization": "Paggamit",
+            "memoryUsage": "Paggamit ng Memory",
+            "efficiency": "Kahusayan",
+            "uptime": "Oras ng Paggana",
+            "powerUsage": "Paggamit ng Kuryente",
+            "temperature": "Temperatura"
+          },
+          "metricsSummary": "Buod ng Metrics"
+        },
+        "filters": {
+          "title": "Pag-uri at Pagsala",
+          "sortBy": "Uriin Ayon sa",
+          "performanceMetric": "Sukatan ng Performance",
+          "resetFilters": "I-reset ang mga Filter",
+          "all": "Lahat",
+          "clearAll": "Burahin Lahat",
+          "sort": {
+            "label": "Uriin Ayon sa",
+            "placeholder": "Sukatan ng Performance",
+            "options": {
+              "utilization": "Paggamit",
+              "efficiency": "Kahusayan",
+              "memoryUsage": "Paggamit ng Memory",
+              "powerUsage": "Paggamit ng Kuryente",
+              "uptime": "Oras ng Paggana"
+            }
+          },
+          "modelNumber": {
+            "label": "Numero ng Modelo",
+            "placeholder": "Lahat ng Modelo",
+            "options": {
+              "NVIDIA H100": "NVIDIA H100",
+              "NVIDIA A100": "NVIDIA A100",
+              "NVIDIA A40": "NVIDIA A40",
+              "NVIDIA A6000": "NVIDIA A6000",
+              "NVIDIA L40": "NVIDIA L40"
+            }
+          },
+          "location": {
+            "label": "Lokasyon",
+            "placeholder": "Lahat ng Lokasyon",
+            "options": {
+              "Provider 1": "Provider 1",
+              "Provider 2": "Provider 2",
+              "Provider 3": "Provider 3",
+              "Provider 4": "Provider 4",
+              "Provider 5": "Provider 5"
+            }
+          },
+          "utilization": {
+            "label": "Paggamit",
+            "placeholder": "Lahat ng Paggamit",
+            "options": {
+              "60": "60%",
+              "70": "70%",
+              "80": "80%",
+              "90": "90%"
+            }
+          }
+        },
+        "stats": {
+          "showing": "Ipinapakita",
+          "of": "ng",
+          "gpus": "GPU"
+        }
+      },
+      "transactions": {
+        "title": "Mga Transaksyon",
+        "exportTransactions": "I-export ang Mga Transaksyon",
+        "columns": {
+          "date": "Petsa",
+          "action": "Aksyon",
+          "amount": "Halaga",
+          "status": "Katayuan"
+        },
+        "status": {
+          "success": "Matagumpay",
+          "pending": "Nakabinbin",
+          "failed": "Nabigo"
+        }
+      },
+      "support": {
+        "title": "Suporta"
+      },
+      "yield": {
+        "charts": {
+          "pointInTime": "Tiyak na Panahon",
+          "cumulative": "Pinagsama-sama",
+          "historicalYield": "Nakaraang Kita",
+          "forecastedYield": "Inaasahang Kita",
+          "actualCumulativeYield": "Aktwal na Pinagsama-samang Kita",
+          "pastExpectedYield": "Dating Inaasahang Kita",
+          "futureExpectedYield": "Hinaharap na Inaasahang Kita"
+        },
+        "redeem": {
+          "button": "I-claim",
+          "redeeming": "Kini-claim...",
+          "success": "Matagumpay na na-claim ang kita"
+        }
+      },
+      "common": {
+        "date": "Petsa",
+        "currency": "USD",
+        "loading": "Naglo-load...",
+        "timeframes": {
+          "1W": "1 Linggo",
+          "1M": "1 Buwan",
+          "3M": "3 Buwan",
+          "1Y": "1 Taon",
+          "ALL": "LAHAT"
+        }
+      }
+    }
+}

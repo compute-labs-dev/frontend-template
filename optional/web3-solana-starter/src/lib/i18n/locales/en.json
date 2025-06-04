@@ -1,0 +1,279 @@
+{
+  "greeting": {
+    "welcome": "Welcome to the Compute Labs project template!"
+  },
+  "header": {
+      "connectWallet": "Connect Wallet",
+      "publicSale": "H200 Public Sale Coming Soon!",
+      "joinWaitlist": "Join the waitlist",
+      "language": {
+        "selectLanguage": "Select Language",
+        "en": "English",
+        "zh": "中文",
+        "de": "Deutsch",
+        "ja": "日本語",
+        "ko": "한국어",
+        "fil": "Filipino",
+        "vi": "Tiếng Việt", 
+        "id": "Bahasa Indonesia"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "noNotifications": "No notifications",
+        "markAllRead": "Mark all as read",
+        "clearAll": "Clear all",
+        "new": "New",
+        "earlier": "Earlier",
+        "types": {
+          "info": "Information",
+          "success": "Success",
+          "warning": "Warning",
+          "error": "Error"
+        },
+        "timeAgo": {
+          "justNow": "Just now",
+          "minutesAgo": "{minutes}m ago",
+          "hoursAgo": "{hours}h ago",
+          "daysAgo": "{days}d ago"
+        },
+        "noNewNotifications": "No new notifications",
+        "noReadNotifications": "No read notifications",
+        "read": "Read"
+      }
+    },
+    "dashboard": {
+      "title": "Dashboards",
+      "overview": {
+        "title": "Overview",
+        "stats": {
+          "totalGPUs": "Total GPUs",
+          "yieldPerDay": "Yield Per Day",
+          "totalYield": "Total Yield",
+          "avgGPUUtilization": "Avg. GPU Utilization"
+        },
+        "charts": {
+          "yieldOverview": {
+            "title": "Yield Overview",
+            "yAxisLabel": "Yield (USD)"
+          },
+          "gpuUtilization": {
+            "title": "Avg. GPU Utilization",
+            "yAxisLabel": "Utilization (%)"
+          }
+        }
+      },
+      "yieldTracking": {
+        "title": "Yield Tracking",
+        "pendingClaims": "Pending Claims",
+        "claimableYield": "Claimable Yield",
+        "totalClaimed": "Total Claimed",
+        "projectedYield": "Projected Yield (30d)",
+        "yieldHistory": "Yield History"
+      },
+      "assetMonitoring": {
+        "title": "Asset Monitoring",
+        "gpuGrid": "GPU Utilization Grid",
+        "modelNumber": "Model Number",
+        "location": "Location",
+        "utilization": "Utilization",
+        "allModels": "All Models",
+        "allLocations": "All Locations",
+        "allUtilization": "All Utilization",
+        "sort": {
+          "label": "Sort By",
+          "placeholder": "Performance Metric"
+        },
+        "filters": {
+          "all": "All",
+          "clearAll": "Clear All",
+          "title": "Filters",
+          "resetFilters": "Reset Filters",
+          "sort": {
+            "label": "Sort By",
+            "placeholder": "Performance Metric",
+            "options": {
+              "utilization": "Utilization",
+              "efficiency": "Efficiency",
+              "memoryUsage": "Memory Usage",
+              "powerUsage": "Power Usage",
+              "uptime": "Uptime",
+              "unknown": "Unknown"
+            }
+          },
+          "modelNumber": {
+            "label": "Model Number",
+            "placeholder": "All Models",
+            "options": {
+              "NVIDIA H100": "NVIDIA H100",
+              "NVIDIA A100": "NVIDIA A100",
+              "NVIDIA A40": "NVIDIA A40",
+              "NVIDIA A6000": "NVIDIA A6000",
+              "NVIDIA L40": "NVIDIA L40",
+              "unknown": "Unknown",
+              "Unknown": "Unknown"
+            }
+          },
+          "location": {
+            "label": "Location",
+            "placeholder": "All Locations",
+            "options": {
+              "Provider 1": "Provider 1",
+              "Provider 2": "Provider 2",
+              "Provider 3": "Provider 3",
+              "Provider 4": "Provider 4",
+              "Provider 5": "Provider 5",
+              "unknown": "Unknown",
+              "Unknown": "Unknown"
+            }
+          },
+          "utilization": {
+            "label": "Utilization",
+            "placeholder": "All Utilization",
+            "options": {
+              "60": "60%",
+              "70": "70%",
+              "80": "80%",
+              "90": "90%",
+              "unknown": "Unknown",
+              "Unknown": "Unknown",
+              "0": "0%"
+            }
+          },
+          "performanceMetric": {
+            "label": "Performance Metric",
+            "options": {
+              "utilization": "Utilization",
+              "unknown": "Unknown",
+              "Unknown": "Unknown"
+            }
+          }
+        },
+        "globalTracking": {
+          "title": "Global Tracking",
+          "gpuCount": "GPU Count",
+          "utilization": "Utilization",
+          "locationInfo": {
+            "title": "Location Info",
+            "gpus": "GPUs",
+            "avgUtilization": "Avg. Utilization"
+          }
+        },
+        "gpuDetails": {
+          "title": "GPU Details",
+          "metrics": {
+            "serialNumber": "Serial Number",
+            "modelNumber": "Model Number",
+            "utilization": "Utilization",
+            "memoryUsage": "Memory Usage",
+            "efficiency": "Efficiency",
+            "uptime": "Uptime",
+            "powerUsage": "Power Usage",
+            "temperature": "Temperature"
+          },
+          "metricsSummary": "Metrics Summary"
+        },
+        "stats": {
+          "showing": "Showing",
+          "of": "of",
+          "gpus": "GPUs"
+        }
+      },
+      "transactions": {
+        "title": "Transactions",
+        "exportTransactions": "Export Transactions",
+        "columns": {
+          "date": "Date",
+          "action": "Action",
+          "amount": "Amount",
+          "status": "Status"
+        },
+        "status": {
+          "success": "Success",
+          "pending": "Pending",
+          "failed": "Failed"
+        },
+        "filters": {
+          "sortAndFilter": "Sort and Filter",
+          "timeRange": {
+            "label": "Time Range",
+            "90days": "Last 90 Days",
+            "6months": "Last 6 Months",
+            "1year": "Last Year",
+            "all": "All Time"
+          },
+          "actionType": {
+            "label": "Action Type",
+            "all": "All Actions"
+          },
+          "status": {
+            "label": "Status",
+            "all": "All Statuses"
+          }
+        },
+        "pagination": {
+          "previous": "Previous",
+          "next": "Next",
+          "page": "Page",
+          "of": "of"
+        }
+      },
+      "staking": {
+        "title": "Staking",
+        "staking": "Staking",
+        "unstaking": "Unstaking",
+        "stakingHistory": "Staking History"
+      },
+      "support": {
+        "title": "Support",
+        "cards": {
+          "docs": "Access Docs",
+          "discord": "Join Discord",
+          "contact": "Contact Us"
+        },
+        "faq": {
+          "title": "FAQs",
+          "categories": {
+            "gettingStarted": "Getting Started",
+            "technical": "Technical Support"
+          }
+        }
+      },
+      "yield": {
+        "charts": {
+          "pointInTime": "Point-in-Time",
+          "cumulative": "Cumulative",
+          "historicalYield": "Historical Yield",
+          "forecastedYield": "Forecasted Yield",
+          "actualCumulativeYield": "Actual Cumulative Yield",
+          "pastExpectedYield": "Past Expected Yield",
+          "futureExpectedYield": "Future Expected Yield"
+        },
+        "redeem": {
+          "button": "Redeem",
+          "redeeming": "Redeeming...",
+          "success": "Successfully redeemed yield"
+        }
+      },
+      "common": {
+        "date": "Date",
+        "currency": "USD",
+        "loading": "Loading...",
+        "timeframes": {
+          "1W": "1W",
+          "1M": "1M",
+          "3M": "3M",
+          "1Y": "1Y",
+          "ALL": "ALL"
+        }
+      }
+    },
+  "app": {
+    "title": "Compute Labs Web3",
+    "description": "A Web3 application built with Next.js and Solana"
+  },
+  "common": {
+    "connect_wallet": "Connect Wallet",
+    "disconnect": "Disconnect",
+    "loading": "Loading..."
+  }
+}

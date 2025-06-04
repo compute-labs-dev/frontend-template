@@ -1,0 +1,204 @@
+{
+    "header": {
+      "connectWallet": "지갑 연결",
+      "publicSale": "H200 공개 판매가 곧 시작됩니다!",
+      "joinWaitlist": "대기자 명단 가입",
+      "language": {
+        "selectLanguage": "언어 선택",
+        "en": "English",
+        "zh": "中文",
+        "de": "Deutsch",
+        "ja": "日本語",
+        "ko": "한국어",
+        "fil": "Filipino",
+        "vi": "Tiếng Việt",
+        "id": "Bahasa Indonesia"
+      },
+      "notifications": {
+        "title": "알림",
+        "noNotifications": "알림 없음",
+        "markAllRead": "모두 읽음으로 표시",
+        "clearAll": "모두 지우기",
+        "new": "새로운 알림",
+        "earlier": "이전 알림",
+        "types": {
+          "info": "정보",
+          "success": "성공",
+          "warning": "경고",
+          "error": "오류"
+        },
+        "timeAgo": {
+          "justNow": "방금",
+          "minutesAgo": "{minutes}분 전",
+          "hoursAgo": "{hours}시간 전",
+          "daysAgo": "{days}일 전"
+        }
+      }
+    },
+    "dashboard": {
+      "title": "대시보드",
+      "overview": {
+        "title": "개요",
+        "stats": {
+          "totalGPUs": "총 GPU",
+          "yieldPerDay": "일일 수익",
+          "totalYield": "총 수익",
+          "avgGPUUtilization": "평균 GPU 사용률"
+        },
+        "charts": {
+          "yieldOverview": {
+            "title": "수익 개요",
+            "yAxisLabel": "수익 (USD)"
+          },
+          "gpuUtilization": {
+            "title": "평균 GPU 사용률",
+            "yAxisLabel": "사용률 (%)"
+          }
+        }
+      },
+      "yieldTracking": {
+        "title": "수익 추적",
+        "pendingClaims": "대기 중인 수익",
+        "claimableYield": "청구 가능한 수익",
+        "totalClaimed": "총 수익",
+        "projectedYield": "예상 수익 (30일)",
+        "yieldHistory": "수익 내역"
+      },
+      "assetMonitoring": {
+        "title": "자산 모니터링",
+        "gpuGrid": "GPU 사용률 그리드",
+        "modelNumber": "모델 번호",
+        "location": "위치",
+        "utilization": "사용률",
+        "allModels": "모든 모델",
+        "allLocations": "모든 위치",
+        "allUtilization": "모든 사용률",
+        "globalTracking": {
+          "title": "글로벌 추적",
+          "gpuCount": "GPU 수",
+          "utilization": "사용률",
+          "locationInfo": {
+            "title": "위치 정보",
+            "gpus": "GPU",
+            "avgUtilization": "평균 사용률"
+          }
+        },
+        "gpuDetails": {
+          "title": "GPU 상세정보",
+          "metrics": {
+            "serialNumber": "시리얼 번호",
+            "modelNumber": "모델 번호",
+            "utilization": "사용률",
+            "memoryUsage": "메모리 사용률",
+            "efficiency": "효율성",
+            "uptime": "가동 시간",
+            "powerUsage": "전력 사용량",
+            "temperature": "온도"
+          },
+          "metricsSummary": "메트릭스 요약"
+        },
+        "filters": {
+          "title": "정렬 및 필터",
+          "sortBy": "정렬 기준",
+          "performanceMetric": "성능 지표",
+          "resetFilters": "필터 초기화",
+          "all": "전체",
+          "clearAll": "모두 지우기",
+          "sort": {
+            "label": "정렬 기준",
+            "placeholder": "성능 지표",
+            "options": {
+              "utilization": "사용률",
+              "efficiency": "효율성",
+              "memoryUsage": "메모리 사용률",
+              "powerUsage": "전력 사용량",
+              "uptime": "가동 시간"
+            }
+          },
+          "modelNumber": {
+            "label": "모델 번호",
+            "placeholder": "모든 모델",
+            "options": {
+              "NVIDIA H100": "NVIDIA H100",
+              "NVIDIA A100": "NVIDIA A100",
+              "NVIDIA A40": "NVIDIA A40",
+              "NVIDIA A6000": "NVIDIA A6000",
+              "NVIDIA L40": "NVIDIA L40"
+            }
+          },
+          "location": {
+            "label": "위치",
+            "placeholder": "모든 위치",
+            "options": {
+              "Provider 1": "제공업체 1",
+              "Provider 2": "제공업체 2",
+              "Provider 3": "제공업체 3",
+              "Provider 4": "제공업체 4",
+              "Provider 5": "제공업체 5"
+            }
+          },
+          "utilization": {
+            "label": "사용률",
+            "placeholder": "모든 사용률",
+            "options": {
+              "60": "60%",
+              "70": "70%",
+              "80": "80%",
+              "90": "90%"
+            }
+          }
+        },
+        "stats": {
+          "showing": "표시",
+          "of": "중",
+          "gpus": "GPU"
+        }
+      },
+      "transactions": {
+        "title": "거래",
+        "exportTransactions": "거래 내역 내보내기",
+        "columns": {
+          "date": "날짜",
+          "action": "동작",
+          "amount": "금액",
+          "status": "상태"
+        },
+        "status": {
+          "success": "성공",
+          "pending": "처리 중",
+          "failed": "실패"
+        }
+      },
+      "support": {
+        "title": "지원"
+      },
+      "yield": {
+        "charts": {
+          "pointInTime": "시점",
+          "cumulative": "누적",
+          "historicalYield": "과거 수익",
+          "forecastedYield": "예상 수익",
+          "actualCumulativeYield": "실제 누적 수익",
+          "pastExpectedYield": "과거 예상 수익",
+          "futureExpectedYield": "미래 예상 수익"
+        },
+        "redeem": {
+          "button": "청구",
+          "redeeming": "청구 중...",
+          "success": "수익 청구 성공"
+        }
+      },
+      "common": {
+        "date": "날짜",
+        "currency": "USD",
+        "loading": "로딩 중...",
+        "timeframes": {
+          "1W": "1주",
+          "1M": "1개월",
+          "3M": "3개월",
+          "1Y": "1년",
+          "ALL": "전체"
+        }
+      }
+    }
+}
