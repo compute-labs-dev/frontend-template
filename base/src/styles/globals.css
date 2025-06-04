@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add any global styles or overrides here */
+body {
+  /* Example: smooth scrolling */
+  /* scroll-behavior: smooth; */
+} /* /src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(../assets/fonts/fonts.css);
+
+  :root {
+    /* --background: #fbfbfa; #fcfcfc; */
+    --foreground: #171717;
+
+    --primary: #94d873;
+    --primary-dark: #003d00;
+    --primary-light: #e1f8d8;
+
+    --cloud-gray: #f1f0ee;
+    --matrix-black: #131416;
+    --ai-mint: #e2f9d7;
+    --quantum-blue: #4864d2;
+    --tech-cyan: #86a0df;
+    --warm-brown: #815e3a;
+    --neural-pink: #f9dbbc;
+    --secondary: #212121;
+    --success: #83c961;
+    --success-light: #e2f9d7;
+    --error: #f7604c;
+    --error-light: #ffc5bc;
+    --attention: #f78535;
+    --attention-light: #f9dbbc;
+    --neutral: #815e3a;
+    --neutral-light: #f3dfcd;
+    --muted: #969696;
+    --muted-foreground: #2e2e2e;
+  }
+
+  [data-theme='dark'] {
+    /* --background: #171717; Dark background */
+    --foreground: #fbfbfa; /* Light foreground */
+    --primary: #94d873; /* Adjusted for better contrast */
+    --primary-dark: #306332; /* Darker primary for better contrast */
+    --primary-light: #e1f8d8; /* Lighter primary for better contrast */
+    --cloud-gray: #333; /* Darker gray */
+    --matrix-black: #ffffff; /* Light text for contrast */
+    --ai-mint: #4c7a7a; /* Darker mint */
+    --quantum-blue: #c2d4e6; /* Lighter blue */
+    --tech-cyan: #a0c4e1; /* Lighter cyan */
+    --warm-brown: #d7c6b0; /* Lighter brown */
+    --neural-pink: #f2c6a0; /* Lighter pink */
+    --secondary: #f0f0f0; /* Light secondary */
+    --success: #4c7a4c; /* Darker success */
+    --success-light: #c2e6c2; /* Lighter success */
+    --error: #ffb3b3; /* Lighter error */
+    --error-light: #ffcccc; /* Very light error */
+    --attention: #f7c6a0; /* Lighter attention */
+    --attention-light: #f9e0d0; /* Very light attention */
+    --neutral: #d7c6b0; /* Lighter neutral */
+    --neutral-light: #f3f3f3; /* Very light neutral */
+    --muted: #333333;
+    --muted-foreground: #d4d4d4;
+  }
+
+
+* {
+  line-height: normal;
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .page-margin {
+    @apply mx-5 sm:mx-8 md:mx-12 lg:mx-12 xl:mx-12;
+  }
+  .-page-margin {
+    @apply -mx-4 sm:-mx-6 md:-mx-10 lg:-mx-12 xl:-mx-16;
+  }
+
+  .space-y-page {
+    @apply space-y-20 lg:space-y-[100px] xl:space-y-[130px] 2xl:space-y-[200px];
+  }
+}
+
+input,
+button,
+textarea {
+  outline: none;
+}
+
+.button-hover-effect {
+  @apply shadow-none transition-all hover:scale-105 hover:opacity-95 hover:shadow-md;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply text-gray-compute;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+
+  body {
+    min-height: 100%;
+    font-family: IBM_Plex_Sans_JP;
+    background-color: var(--background);
+    scroll-behavior: smooth;
+  }
+  
+  html {
+    height: 100%;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.PopoverContent {
+  width: var(--radix-popover-trigger-width);
+  max-height: var(--radix-popover-content-available-height);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary) !important;
+}
+
+.swiper-pagination-progressbar {
+  background: rgba(179, 179, 179, 0.3) !important;
+  height: 4px !important;
+  border-radius: 2px;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: #94d873 !important;
+  border-radius: 2px;
+}
+
+.cursor1 {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 0.15s;
+  z-index: 999;
+  background: none;
+  border: 1.5px solid transparent;
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--primary),
+    var(--quantum-blue)
+  );
+  background-origin: unset;
+  background-clip: unset;
+  opacity: 0.3;
+
+  @apply hidden md:block;
+}
+
+.cursor2 {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 0.2s;
+  z-index: 999;
+
+  @apply hidden md:block;
+}
+
+@keyframes moveUnderscore {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #94d873 0%, #93aae2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.gradient-text-mask {
+  background: linear-gradient(135deg, #94d873 0%, #93aae2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--mask-position, 0%)
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--mask-position, 0%)
+  );
+}
+
+.touch-pan-y {
+  touch-action: pan-y; /* Ensures vertical scrolling */
+}
+
+.overscroll-contain {
+  overscroll-behavior: contain; /* Prevents parent container scroll */
+}
+
+/* Enable smooth scrolling */
+#core-services-content {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for better UI */
+#core-services-content::-webkit-scrollbar {
+  display: none;
+}
+#core-services-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

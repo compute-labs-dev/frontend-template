@@ -10,6 +10,7 @@ const semver = require('semver');
 const { execSync } = require('child_process');
 
 const CWD = process.cwd();
+const TEMPLATE_DIR = __dirname;
 
 function getGitUserName() {
     try {
@@ -27,7 +28,7 @@ async function main() {
     // --- Load Template Configuration ---
     let templateConfig;
     try {
-        const configPath = path.join(__dirname, 'templates', 'config.json');
+        const configPath = path.join(TEMPLATE_DIR, 'templates', 'config.json');
         templateConfig = await fs.readJson(configPath);
     } catch (error) {
         console.error(chalk.red('Error: Could not load template configuration from templates/config.json.'));
@@ -82,7 +83,10 @@ async function main() {
             console.log(chalk.cyan('Operation cancelled.'));
             process.exit(0);
         }
-        console.log(chalk.yellow(`Proceeding with overwrite for directory: ${projectName}`));
+        console.log(chalk.yellow(`Overwriting directory: ${projectName} ...`));
+        await fs.emptyDir(projectPath);
+    } else {
+        await fs.ensureDir(projectPath);
     }
 
     // --- Interactive Prompts ---
@@ -109,23 +113,59 @@ async function main() {
     ];
 
     const answers = await inquirer.prompt(questions);
-    // For now, just log the answers. They will be used later.
-    console.log(chalk.cyan('\nProject options received:'));
-    console.log(chalk.cyan(`  Description: ${answers.projectDescription}`));
-    console.log(chalk.cyan(`  Author: ${answers.authorName}`));
-    console.log(chalk.cyan(`  Include Web3: ${answers.includeWeb3 ? 'Yes' : 'No'}`));
+    const { projectDescription, authorName, includeWeb3 } = answers;
 
-    // TODO: File operations (copy base, copy optional, replace variables using answers)
-    // TODO: Package management (update package.json, install dependencies based on answers)
+    console.log(chalk.cyan('\nProject options received:'));
+    console.log(chalk.cyan(`  Description: ${projectDescription}`));
+    console.log(chalk.cyan(`  Author: ${authorName}`));
+    console.log(chalk.cyan(`  Include Web3: ${includeWeb3 ? 'Yes' : 'No'}`));
+
+    const spinner = ora('Copying template files...').start();
+
+    try {
+        // Step 1: Copy base template files
+        const baseTemplatePath = path.join(TEMPLATE_DIR, 'base');
+        await fs.copy(baseTemplatePath, projectPath, { 
+            filter: src => !src.endsWith('.gitkeep') // Don't copy .gitkeep files
+        });
+        spinner.text = 'Base files copied.';
+
+        // Step 2: Conditionally copy optional Web3 files
+        if (includeWeb3) {
+            spinner.text = 'Copying Web3 files...';
+            const web3TemplatePath = path.join(TEMPLATE_DIR, 'optional', 'web3-solana-starter');
+            if (fs.existsSync(web3TemplatePath)) {
+                await fs.copy(web3TemplatePath, projectPath, { 
+                    overwrite: true, // Overwrite if files exist (e.g. package.json from base)
+                    filter: src => !src.endsWith('.gitkeep')
+                });
+                spinner.text = 'Web3 files copied.';
+            } else {
+                spinner.warn(chalk.yellow('Web3 template directory not found. Skipping Web3 files.'));
+            }
+        }
+
+        // TODO: Step 3: Process template variables in copied files
+        // (project Name, description, company name, current year, author name)
+        // This will involve reading files, replacing content, and writing them back.
+        // Files to process: .json, .js, .jsx, .ts, .tsx, .md, .html
+
+        spinner.succeed(chalk.green('Template files copied successfully!'));
+
+    } catch (error) {
+        spinner.fail(chalk.red('Error copying template files.'));
+        console.error(error);
+        // Consider cleanup of projectPath here if partial copy occurred
+        process.exit(1);
+    }
+
+    // TODO: Package management (update package.json from snippets, install dependencies based on answers)
     // TODO: Finalization (success message, next steps)
 
-    // Simulate work for now
-    const spinner = ora('Processing project configuration (simulation)...').start();
-    await new Promise(resolve => setTimeout(resolve, 1500)); 
-    spinner.succeed('Project configuration processed (simulation).');
-
-    console.log(chalk.green('\n✅ Project setup will continue here...'));
+    console.log(chalk.green('\n✅ Project setup progressing...'));
     console.log(`Next steps (conceptual):
+      Process variables in files
+      Manage package.json and dependencies
       cd ${projectName}
       npm install
       npm run dev`);
