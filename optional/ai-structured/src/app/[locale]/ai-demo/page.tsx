@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ChatInterface } from '@/components/ai/chat-interface';
+import { UsageStats } from '@/components/ai/usage-stats';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
@@ -42,8 +43,9 @@ export default function AIDemoPage() {
 
         {/* Main Content */}
         <Tabs defaultValue="chat" className="space-y-4">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="chat">Chat Interface</TabsTrigger>
+            <TabsTrigger value="usage">Usage & Costs</TabsTrigger>
             <TabsTrigger value="examples">Examples</TabsTrigger>
             <TabsTrigger value="providers">Providers</TabsTrigger>
           </TabsList>
@@ -54,6 +56,10 @@ export default function AIDemoPage() {
               showModelSelector={true}
               className="h-[700px]"
             />
+          </TabsContent>
+
+          <TabsContent value="usage" className="space-y-4">
+            <UsageStats />
           </TabsContent>
 
           <TabsContent value="examples" className="space-y-4">
