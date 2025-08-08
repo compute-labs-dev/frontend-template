@@ -1,6 +1,6 @@
 {
   "name": "create-computelabs-app",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Create modern web applications with Compute Labs - featuring Web2, AI, and Web3 templates",
   "main": "create.js",
   "bin": {
@@ -52,4 +52,4 @@
     "validate-npm-package-name": "^4.0.0",
     "semver": "^7.5.4"
   }
-} 
+}
