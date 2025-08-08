@@ -93,6 +93,44 @@ const TEST_CONFIGS = [
       '@solana/wallet-adapter-wallets',
     ],
   },
+  {
+    name: 'ai-web3-combined',
+    projectType: 'ai-web3',
+    answers: {
+      projectDescription: 'Test AI + Web3 Combined Project',
+      authorName: 'Test Author',
+      aiProviders: ['openai', 'anthropic'],
+      solanaNetwork: 'devnet',
+      includeAllFeatures: true,
+    },
+    requiredFiles: [
+      'package.json',
+      // AI files
+      'src/lib/ai/config.ts',
+      'src/lib/ai/ai-service.ts',
+      'src/components/ai/chat-interface.tsx',
+      'src/app/api/ai/chat/route.ts',
+      'src/app/[locale]/ai-demo/page.tsx',
+      // Web3 files
+      'src/components/providers/app-wallet-provider.tsx',
+      'src/components/defi/token-swap.tsx',
+      'src/lib/solana/connection.ts',
+      'src/app/[locale]/swap/page.tsx',
+      // Combined landing page
+      'src/app/[locale]/page.tsx',
+      '.env.local',
+    ],
+    requiredDependencies: [
+      // AI dependencies
+      'openai',
+      '@anthropic-ai/sdk',
+      'ai',
+      // Web3 dependencies
+      '@solana/web3.js',
+      '@solana/wallet-adapter-react',
+      '@solana/wallet-adapter-wallets',
+    ],
+  },
 ];
 
 // Test utilities
@@ -231,6 +269,16 @@ function createTestProject(config) {
         });
         // Merge package.json dependencies
         mergePackageJson(projectPath, web3Dir);
+      }
+    } else if (config.projectType === 'ai-web3') {
+      const combinedDir = path.join(__dirname, 'optional/ai-web3-combined');
+      if (fs.existsSync(combinedDir)) {
+        fs.copySync(combinedDir, projectPath, {
+          overwrite: true,
+          filter: src => !src.includes('node_modules') && !src.endsWith('.DS_Store') && !src.endsWith('package.json.snippet')
+        });
+        // Merge package.json dependencies
+        mergePackageJson(projectPath, combinedDir);
       }
     }
     

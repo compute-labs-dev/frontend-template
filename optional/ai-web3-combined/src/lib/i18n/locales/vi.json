@@ -1,0 +1,204 @@
+{
+    "header": {
+      "connectWallet": "Kết nối Ví",
+      "publicSale": "Sắp diễn ra Public Sale H200!",
+      "joinWaitlist": "Tham gia danh sách chờ",
+      "language": {
+        "selectLanguage": "Chọn Ngôn Ngữ",
+        "en": "English",
+        "zh": "中文",
+        "de": "Deutsch",
+        "ja": "日本語",
+        "ko": "한국어",
+        "fil": "Filipino",
+        "vi": "Tiếng Việt",
+        "id": "Bahasa Indonesia"
+      },
+      "notifications": {
+        "title": "Thông báo",
+        "noNotifications": "Không có thông báo",
+        "markAllRead": "Đánh dấu tất cả đã đọc",
+        "clearAll": "Xóa tất cả",
+        "new": "Mới",
+        "earlier": "Trước đó",
+        "types": {
+          "info": "Thông tin",
+          "success": "Thành công",
+          "warning": "Cảnh báo",
+          "error": "Lỗi"
+        },
+        "timeAgo": {
+          "justNow": "Vừa xong",
+          "minutesAgo": "{minutes} phút trước",
+          "hoursAgo": "{hours} giờ trước",
+          "daysAgo": "{days} ngày trước"
+        }
+      }
+    },
+    "dashboard": {
+      "title": "Bảng điều khiển",
+      "overview": {
+        "title": "Tổng quan",
+        "stats": {
+          "totalGPUs": "Tổng số GPU",
+          "yieldPerDay": "Lợi nhuận mỗi ngày",
+          "totalYield": "Tổng lợi nhuận",
+          "avgGPUUtilization": "Mức sử dụng GPU trung bình"
+        },
+        "charts": {
+          "yieldOverview": {
+            "title": "Tổng quan lợi nhuận",
+            "yAxisLabel": "Lợi nhuận (USD)"
+          },
+          "gpuUtilization": {
+            "title": "Mức sử dụng GPU trung bình",
+            "yAxisLabel": "Mức sử dụng (%)"
+          }
+        }
+      },
+      "yieldTracking": {
+        "title": "Theo dõi lợi nhuận",
+        "pendingClaims": "Lợi nhuận đang chờ",
+        "claimableYield": "Lợi nhuận có thể nhận",
+        "totalClaimed": "Tổng lợi nhuận",
+        "projectedYield": "Lợi nhuận dự kiến (30d)",
+        "yieldHistory": "Lịch sử lợi nhuận"
+      },
+      "assetMonitoring": {
+        "title": "Giám sát tài sản",
+        "gpuGrid": "Lưới sử dụng GPU",
+        "modelNumber": "Số model",
+        "location": "Vị trí",
+        "utilization": "Mức sử dụng",
+        "allModels": "Tất cả model",
+        "allLocations": "Tất cả vị trí",
+        "allUtilization": "Tất cả mức sử dụng",
+        "globalTracking": {
+          "title": "Theo dõi toàn cầu",
+          "gpuCount": "Số lượng GPU",
+          "utilization": "Mức sử dụng",
+          "locationInfo": {
+            "title": "Thông tin vị trí",
+            "gpus": "GPU",
+            "avgUtilization": "Mức sử dụng TB"
+          }
+        },
+        "gpuDetails": {
+          "title": "Chi tiết GPU",
+          "metrics": {
+            "serialNumber": "Số Sê-ri",
+            "modelNumber": "Số Model",
+            "utilization": "Mức Sử Dụng",
+            "memoryUsage": "Sử Dụng Bộ Nhớ",
+            "efficiency": "Hiệu Suất",
+            "uptime": "Thời Gian Hoạt Động",
+            "powerUsage": "Mức Tiêu Thụ Điện",
+            "temperature": "Nhiệt Độ"
+          },
+          "metricsSummary": "Tổng Quan Chỉ Số"
+        },
+        "filters": {
+          "title": "Sắp Xếp và Lọc",
+          "sortBy": "Sắp Xếp Theo",
+          "performanceMetric": "Chỉ Số Hiệu Suất",
+          "resetFilters": "Đặt Lại Bộ Lọc",
+          "all": "Tất cả",
+          "clearAll": "Xóa tất cả",
+          "sort": {
+            "label": "Sắp Xếp Theo",
+            "placeholder": "Chỉ Số Hiệu Suất",
+            "options": {
+              "utilization": "Mức Sử Dụng",
+              "efficiency": "Hiệu Suất",
+              "memoryUsage": "Sử Dụng Bộ Nhớ",
+              "powerUsage": "Mức Tiêu Thụ Điện",
+              "uptime": "Thời Gian Hoạt Động"
+            }
+          },
+          "modelNumber": {
+            "label": "Số Model",
+            "placeholder": "Tất cả Model",
+            "options": {
+              "NVIDIA H100": "NVIDIA H100",
+              "NVIDIA A100": "NVIDIA A100",
+              "NVIDIA A40": "NVIDIA A40",
+              "NVIDIA A6000": "NVIDIA A6000",
+              "NVIDIA L40": "NVIDIA L40"
+            }
+          },
+          "location": {
+            "label": "Vị trí",
+            "placeholder": "Tất cả vị trí",
+            "options": {
+              "Provider 1": "Nhà cung cấp 1",
+              "Provider 2": "Nhà cung cấp 2",
+              "Provider 3": "Nhà cung cấp 3",
+              "Provider 4": "Nhà cung cấp 4",
+              "Provider 5": "Nhà cung cấp 5"
+            }
+          },
+          "utilization": {
+            "label": "Mức Sử Dụng",
+            "placeholder": "Tất cả mức sử dụng",
+            "options": {
+              "60": "60%",
+              "70": "70%",
+              "80": "80%",
+              "90": "90%"
+            }
+          }
+        },
+        "stats": {
+          "showing": "Đang hiển thị",
+          "of": "trong số",
+          "gpus": "GPU"
+        }
+      },
+      "transactions": {
+        "title": "Giao dịch",
+        "exportTransactions": "Xuất giao dịch",
+        "columns": {
+          "date": "Ngày",
+          "action": "Thao tác",
+          "amount": "Số tiền",
+          "status": "Trạng thái"
+        },
+        "status": {
+          "success": "Thành công",
+          "pending": "Đang xử lý",
+          "failed": "Thất bại"
+        }
+      },
+      "support": {
+        "title": "Hỗ trợ"
+      },
+      "yield": {
+        "charts": {
+          "pointInTime": "Thời Điểm",
+          "cumulative": "Tích Lũy",
+          "historicalYield": "Lợi Nhuận Lịch Sử",
+          "forecastedYield": "Lợi Nhuận Dự Kiến",
+          "actualCumulativeYield": "Lợi Nhuận Tích Lũy Thực Tế",
+          "pastExpectedYield": "Lợi Nhuận Kỳ Vọng Trước",
+          "futureExpectedYield": "Lợi Nhuận Kỳ Vọng Tương Lai"
+        },
+        "redeem": {
+          "button": "Nhận",
+          "redeeming": "Đang nhận...",
+          "success": "Nhận lợi nhuận thành công"
+        }
+      },
+      "common": {
+        "date": "Ngày",
+        "currency": "USD",
+        "loading": "Đang tải...",
+        "timeframes": {
+          "1W": "1 Tuần",
+          "1M": "1 Tháng",
+          "3M": "3 Tháng",
+          "1Y": "1 Năm",
+          "ALL": "Tất Cả"
+        }
+      }
+    }
+}

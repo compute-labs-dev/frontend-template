@@ -270,6 +270,11 @@ async function main() {
                 name: chalk.magenta('Web3') + ' - Blockchain app with Solana wallet integration',
                 value: 'web3',
                 short: 'Web3'
+            },
+            {
+                name: chalk.cyan('🚀 AI + Web3 Combined') + ' - Full-stack with AI and blockchain features',
+                value: 'ai-web3',
+                short: 'AI + Web3'
             }
         ]
     };
@@ -341,6 +346,42 @@ async function main() {
             }
         ];
         templateSpecificAnswers = await inquirer.prompt(web3Questions);
+    } else if (projectType === 'ai-web3') {
+        const combinedQuestions = [
+            {
+                type: 'checkbox',
+                name: 'aiProviders',
+                message: 'Select AI providers to include:',
+                choices: [
+                    { name: 'OpenAI', value: 'openai', checked: true },
+                    { name: 'Anthropic (Claude)', value: 'anthropic', checked: true },
+                    { name: 'Google Gemini', value: 'gemini' },
+                    { name: 'Ollama (Local models)', value: 'ollama' }
+                ],
+                validate: (choices) => choices.length > 0 || 'Please select at least one AI provider'
+            },
+            {
+                type: 'list',
+                name: 'solanaNetwork',
+                message: 'Select Solana network:',
+                choices: [
+                    { name: 'Devnet (Development)', value: 'devnet' },
+                    { name: 'Testnet (Testing)', value: 'testnet' },
+                    { name: 'Mainnet-Beta (Production)', value: 'mainnet-beta' }
+                ],
+                default: 'devnet'
+            },
+            {
+                type: 'confirm',
+                name: 'includeAllFeatures',
+                message: 'Include all AI and DeFi example components?',
+                default: true
+            }
+        ];
+        templateSpecificAnswers = await inquirer.prompt(combinedQuestions);
+        // Map for consistency
+        templateSpecificAnswers.includeExamples = templateSpecificAnswers.includeAllFeatures;
+        templateSpecificAnswers.includeDefi = templateSpecificAnswers.includeAllFeatures;
     }
 
     const answers = {
@@ -383,7 +424,7 @@ async function main() {
             if (fs.existsSync(web3TemplatePath)) {
                 await fs.copy(web3TemplatePath, projectPath, { 
                     overwrite: true,
-                    filter: src => !src.endsWith('.gitkeep') && !src.includes('node_modules') && !src.endsWith('.DS_Store')
+                    filter: src => !src.endsWith('.gitkeep') && !src.includes('node_modules') && !src.endsWith('.DS_Store') && !src.endsWith('package.json.snippet')
                 });
                 
                 // Merge package.json dependencies
@@ -406,6 +447,21 @@ async function main() {
                 spinner.text = 'AI files copied.';
             } else {
                 spinner.warn(chalk.yellow('AI template directory not found. Skipping AI files.'));
+            }
+        } else if (answers.projectType === 'ai-web3') {
+            spinner.text = 'Copying AI + Web3 combined template files...';
+            const combinedTemplatePath = path.join(OPTIONAL_TEMPLATE_DIR, 'ai-web3-combined');
+            if (fs.existsSync(combinedTemplatePath)) {
+                await fs.copy(combinedTemplatePath, projectPath, { 
+                    overwrite: true,
+                    filter: src => !src.endsWith('.gitkeep') && !src.includes('node_modules') && !src.endsWith('.DS_Store') && !src.endsWith('package.json.snippet')
+                });
+                
+                // Merge package.json dependencies
+                await mergePackageJson(projectPath, combinedTemplatePath);
+                spinner.text = 'AI + Web3 files copied.';
+            } else {
+                spinner.warn(chalk.yellow('AI + Web3 combined template directory not found. Skipping combined files.'));
             }
         }
 

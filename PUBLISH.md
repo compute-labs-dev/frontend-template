@@ -129,5 +129,6 @@ git push origin v1.0.0
 ## Support
 
 For issues or questions:
-- GitHub Issues: https://github.com/compute-labs/create-computelabs-app/issues
-- Email: dev@computelabs.com
+- GitHub Issues: https://github.com/compute-labs-dev/frontend-template/issues
+- Email: support@computelabs.atlassian.net
+- Website: https://www.computelabs.ai

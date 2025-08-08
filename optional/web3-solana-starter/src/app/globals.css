@@ -14,8 +14,8 @@ body {
 @import url(../assets/fonts/fonts.css);
 
   :root {
-    /* --background: #fbfbfa; #fcfcfc; */
-    --foreground: #171717;
+    --background: #fcfcfc;
+    --foreground: #0a0a0a;
 
     --primary: #94d873;
     --primary-dark: #003d00;
@@ -41,20 +41,21 @@ body {
     --muted-foreground: #2e2e2e;
   }
 
-  [data-theme='dark'] {
-    /* --background: #171717; Dark background */
-    --foreground: #fbfbfa; /* Light foreground */
+  [data-theme='dark'],
+  .dark {
+    --background: #0a0a0a; /* Dark background */
+    --foreground: #e4e4e7; /* Better contrast light foreground */
     --primary: #94d873; /* Adjusted for better contrast */
     --primary-dark: #306332; /* Darker primary for better contrast */
     --primary-light: #e1f8d8; /* Lighter primary for better contrast */
     --cloud-gray: #333; /* Darker gray */
-    --matrix-black: #ffffff; /* Light text for contrast */
+    --matrix-black: #e4e4e7; /* Better contrast light text */
     --ai-mint: #4c7a7a; /* Darker mint */
     --quantum-blue: #c2d4e6; /* Lighter blue */
     --tech-cyan: #a0c4e1; /* Lighter cyan */
     --warm-brown: #d7c6b0; /* Lighter brown */
     --neural-pink: #f2c6a0; /* Lighter pink */
-    --secondary: #f0f0f0; /* Light secondary */
+    --secondary: #e4e4e7; /* Better contrast light secondary */
     --success: #4c7a4c; /* Darker success */
     --success-light: #c2e6c2; /* Lighter success */
     --error: #ffb3b3; /* Lighter error */
@@ -63,8 +64,8 @@ body {
     --attention-light: #f9e0d0; /* Very light attention */
     --neutral: #d7c6b0; /* Lighter neutral */
     --neutral-light: #f3f3f3; /* Very light neutral */
-    --muted: #333333;
-    --muted-foreground: #d4d4d4;
+    --muted: #6b7280;
+    --muted-foreground: #e5e7eb;
   }
 
 
@@ -111,13 +112,20 @@ h5 {
 @layer base {
   :root {
     --radius: 0.5rem;
+    --background: #fcfcfc;
+  }
+  
+  .dark {
+    --background: #0a0a0a;
   }
 
   body {
     min-height: 100%;
     font-family: IBM_Plex_Sans_JP;
     background-color: var(--background);
+    color: var(--foreground);
     scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s;
   }
   
   html {

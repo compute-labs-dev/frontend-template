@@ -1,6 +1,6 @@
 {
   "name": "create-computelabs-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Create modern web applications with Compute Labs - featuring Web2, AI, and Web3 templates",
   "main": "create.js",
   "bin": {
@@ -12,12 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/compute-labs/create-computelabs-app.git"
+    "url": "git+https://github.com/compute-labs-dev/frontend-template.git"
   },
   "bugs": {
-    "url": "https://github.com/compute-labs/create-computelabs-app/issues"
+    "url": "https://github.com/compute-labs-dev/frontend-template/issues",
+    "email": "support@computelabs.atlassian.net"
   },
-  "homepage": "https://github.com/compute-labs/create-computelabs-app#readme",
+  "homepage": "https://www.computelabs.ai",
   "keywords": [
     "create-app",
     "cli",
@@ -35,7 +36,7 @@
     "solana",
     "defi"
   ],
-  "author": "Compute Labs <dev@computelabs.com>",
+  "author": "Compute Labs <support@computelabs.atlassian.net> (https://www.computelabs.ai)",
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"

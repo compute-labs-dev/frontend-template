@@ -55,8 +55,8 @@ Enhancement suggestions are welcome! Please include:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/compute-labs/computelabs-template.git
-cd computelabs-template
+git clone https://github.com/compute-labs-dev/frontend-template.git
+cd frontend-template
 ```
 
 2. Install dependencies:
@@ -236,9 +236,10 @@ PRs will be merged when:
 
 ### Contact
 
-- **Issues**: [GitHub Issues](https://github.com/compute-labs/computelabs-template/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/compute-labs/computelabs-template/discussions)
-- **Email**: dev@computelabs.com
+- **Issues**: [GitHub Issues](https://github.com/compute-labs-dev/frontend-template/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/compute-labs-dev/frontend-template/discussions)
+- **Email**: support@computelabs.atlassian.net
+- **Website**: [computelabs.ai](https://www.computelabs.ai)
 
 ## Recognition
 

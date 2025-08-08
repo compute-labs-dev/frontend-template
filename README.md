@@ -1,18 +1,21 @@
 # create-computelabs-app
 
-🚀 Create modern web applications with Compute Labs in seconds. Choose from three specialized templates: Standard Web2, AI-Structured, or Web3.
+🚀 Create modern web applications with Compute Labs in seconds. Choose from four specialized templates: Standard Web2, AI-Structured, Web3, or the powerful AI + Web3 combined template.
 
 [![npm version](https://img.shields.io/npm/v/create-computelabs-app.svg)](https://www.npmjs.com/package/create-computelabs-app)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen)](https://nodejs.org)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
+![CLI Prompt Example](public/cli_prompt.png)
+
 ## Features
 
-✨ **Three Specialized Templates**
+✨ **Four Specialized Templates**
 - **Standard Web2**: Next.js with theming, i18n, and Redux
 - **AI-Structured**: Multi-provider AI integration (OpenAI, Anthropic, Gemini, Ollama)
 - **Web3**: Solana blockchain with wallet connectivity and DeFi components
+- **AI + Web3 Combined**: Full-stack powerhouse with both AI and blockchain features
 
 🎨 **Built-in Features**
 - Compute Labs branding and design system
@@ -80,6 +83,14 @@ Create blockchain applications on Solana:
 - **Networks**: Mainnet, Testnet, Devnet support
 - **Demo Page**: Token swap interface at `/swap`
 
+### 🚀 AI + Web3 Combined
+The ultimate full-stack template combining AI and blockchain:
+- **All AI Features**: Multi-provider LLMs, streaming chat, API endpoints
+- **All Web3 Features**: Solana integration, wallet support, DeFi components
+- **Unified Interface**: Seamless integration of AI and blockchain features
+- **Use Cases**: AI trading bots, smart contract analysis, DeFi assistants
+- **Demo Pages**: Both `/ai-demo` and `/swap` included
+
 ## Project Structure
 
 ```
@@ -111,6 +122,19 @@ OLLAMA_HOST=http://localhost:11434
 
 **Web3 Template:**
 ```env
+NEXT_PUBLIC_SOLANA_NETWORK=devnet
+NEXT_PUBLIC_RPC_URL=https://api.devnet.solana.com
+```
+
+**AI + Web3 Combined Template:**
+```env
+# AI Configuration
+OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+GOOGLE_API_KEY=AI...
+OLLAMA_HOST=http://localhost:11434
+
+# Web3 Configuration
 NEXT_PUBLIC_SOLANA_NETWORK=devnet
 NEXT_PUBLIC_RPC_URL=https://api.devnet.solana.com
 ```
@@ -158,9 +182,10 @@ node test-templates.js
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/compute-labs/computelabs-template/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/compute-labs/computelabs-template/discussions)
-- **Email**: support@computelabs.com
+- **Website**: [computelabs.ai](https://www.computelabs.ai)
+- **Issues**: [GitHub Issues](https://github.com/compute-labs-dev/frontend-template/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/compute-labs-dev/frontend-template/discussions)
+- **Email**: support@computelabs.atlassian.net
 
 ## License
 
@@ -176,4 +201,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ by [Compute Labs](https://computelabs.com) 
+Built with ❤️ by [Compute Labs](https://www.computelabs.ai) 
