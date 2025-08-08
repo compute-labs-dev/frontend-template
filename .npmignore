@@ -1,0 +1,60 @@
+# Test output
+test-output/
+test-*/
+*.test.js
+
+# Development files
+.git/
+.github/
+.vscode/
+.idea/
+
+# Documentation source files (keep compiled docs)
+docs/source/
+*.md.backup
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*.swn
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies (shouldn't be in repo anyway)
+node_modules/
+
+# Lock files (users should generate their own)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Test projects
+test-web3-demo/
+test-project/
+my-app/
+my-*-app/
+
+# Keep these files
+!base/**
+!optional/**
+!templates/**
+!bin/**
+!create.js
+!README.md
+!LICENSE
+!CONTRIBUTING.md
+!package.json

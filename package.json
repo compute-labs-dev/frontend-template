@@ -1,22 +1,48 @@
 {
   "name": "create-computelabs-app",
   "version": "1.0.0",
-  "description": "Create Compute Labs projects with one command",
+  "description": "Create modern web applications with Compute Labs - featuring Web2, AI, and Web3 templates",
   "main": "create.js",
   "bin": {
-    "create-computelabs-app": "./create.js"
+    "create-computelabs-app": "./bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test-templates.js",
+    "prepublishOnly": "npm test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compute-labs/create-computelabs-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/compute-labs/create-computelabs-app/issues"
+  },
+  "homepage": "https://github.com/compute-labs/create-computelabs-app#readme",
   "keywords": [
+    "create-app",
     "cli",
     "template",
-    "scaffold"
+    "scaffold",
+    "computelabs",
+    "compute-labs",
+    "nextjs",
+    "react",
+    "typescript",
+    "ai",
+    "openai",
+    "anthropic",
+    "web3",
+    "solana",
+    "defi"
   ],
-  "author": "Compute Labs",
-  "license": "UNLICENSED",
-  "private": true,
+  "author": "Compute Labs <dev@computelabs.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "inquirer": "^8.0.0",
     "fs-extra": "^11.0.0",

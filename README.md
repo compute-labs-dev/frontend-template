@@ -1,7 +1,8 @@
-# Compute Labs Template Generator
+# create-computelabs-app
 
-🚀 A powerful CLI tool for scaffolding modern web applications with Compute Labs branding and best practices. Choose from three specialized templates: Standard Web2, AI-Structured, or Web3.
+🚀 Create modern web applications with Compute Labs in seconds. Choose from three specialized templates: Standard Web2, AI-Structured, or Web3.
 
+[![npm version](https://img.shields.io/npm/v/create-computelabs-app.svg)](https://www.npmjs.com/package/create-computelabs-app)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen)](https://nodejs.org)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -24,19 +25,34 @@
 
 ## Quick Start
 
+### Using npx (recommended)
+
 ```bash
-# Clone the repository
-git clone https://github.com/compute-labs/computelabs-template.git
-cd computelabs-template
-
-# Install dependencies
+npx create-computelabs-app my-app
+cd my-app
 npm install
-
-# Create a new project
-node create.js my-awesome-app
-
-# Follow the interactive prompts to customize your project
+npm run dev
 ```
+
+### Using npm
+
+```bash
+npm create computelabs-app@latest my-app
+cd my-app
+npm install
+npm run dev
+```
+
+### Using yarn
+
+```bash
+yarn create computelabs-app my-app
+cd my-app
+yarn
+yarn dev
+```
+
+The CLI will guide you through selecting and configuring your template.
 
 ## Template Options
 
