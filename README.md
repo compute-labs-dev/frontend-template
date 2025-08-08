@@ -1,23 +1,163 @@
-# Company Project Template CLI
+# Compute Labs Template Generator
 
-This repository contains the `create.js` script and the template files for scaffolding new projects at Compute Labs.
+🚀 A powerful CLI tool for scaffolding modern web applications with Compute Labs branding and best practices. Choose from three specialized templates: Standard Web2, AI-Structured, or Web3.
 
-## Usage
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Node Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen)](https://nodejs.org)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-(Instructions to be detailed later, typically involving cloning this repo and running the script, or using a one-liner if developed.)
+## Features
+
+✨ **Three Specialized Templates**
+- **Standard Web2**: Next.js with theming, i18n, and Redux
+- **AI-Structured**: Multi-provider AI integration (OpenAI, Anthropic, Gemini, Ollama)
+- **Web3**: Solana blockchain with wallet connectivity and DeFi components
+
+🎨 **Built-in Features**
+- Compute Labs branding and design system
+- Light/dark mode with next-themes
+- Internationalization (8 languages)
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Redux Toolkit for state management
+- ESLint & Prettier configured
+
+## Quick Start
 
 ```bash
-# Example (placeholder)
-node create.js <your-project-name>
+# Clone the repository
+git clone https://github.com/compute-labs/computelabs-template.git
+cd computelabs-template
+
+# Install dependencies
+npm install
+
+# Create a new project
+node create.js my-awesome-app
+
+# Follow the interactive prompts to customize your project
 ```
 
-## Structure
+## Template Options
 
-- `create.js`: The main CLI script.
-- `package.json`: Dependencies for the `create.js` script.
-- `base/`: Core template files for all projects.
-- `optional/`: Optional features and components that can be added during setup.
-- `templates/`: Alternative base templates (if any) and their configurations.
-- `scripts/`: Post-installation or utility scripts.
+### 🌐 Standard Web2
+Perfect for traditional web applications with modern features:
+- Next.js 14 with App Router
+- Redux Toolkit for state management
+- Internationalization ready (8 languages)
+- Theme switching (light/dark mode)
+- Responsive design with Tailwind CSS
 
-For full details, see the Product Requirements Document in `docs/company_template_prd.md`. 
+### 🤖 AI-Structured
+Build AI-powered applications with multiple LLM providers:
+- **Providers**: OpenAI, Anthropic, Google Gemini, Ollama (local)
+- **Features**: Chat interface, streaming responses, cost tracking
+- **Components**: Pre-built chat UI, model selector, message handling
+- **API Routes**: Ready-to-use endpoints for chat and completions
+- **Demo Page**: Interactive AI playground at `/ai-demo`
+
+### 🔗 Web3
+Create blockchain applications on Solana:
+- **Wallet Support**: Phantom, Backpack, OKX
+- **DeFi Components**: Token swap interface with slippage control
+- **Utilities**: Transaction helpers, token operations, RPC management
+- **Networks**: Mainnet, Testnet, Devnet support
+- **Demo Page**: Token swap interface at `/swap`
+
+## Project Structure
+
+```
+my-app/
+├── src/
+│   ├── app/              # Next.js App Router
+│   ├── components/       # React components
+│   ├── lib/              # Utilities and configurations
+│   ├── store/            # Redux store
+│   └── assets/           # Images, fonts
+├── public/               # Static files
+├── .env.local           # Environment variables
+└── package.json         # Dependencies
+```
+
+## Configuration
+
+### Environment Variables
+
+Each template generates appropriate `.env.local` and `.env.example` files:
+
+**AI Template:**
+```env
+OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+GOOGLE_API_KEY=AI...
+OLLAMA_HOST=http://localhost:11434
+```
+
+**Web3 Template:**
+```env
+NEXT_PUBLIC_SOLANA_NETWORK=devnet
+NEXT_PUBLIC_RPC_URL=https://api.devnet.solana.com
+```
+
+## Testing
+
+Before deploying or publishing:
+
+```bash
+# Run automated tests
+node test-templates.js
+
+# Manual testing (see TESTING.md for full guide)
+node create.js test-project
+cd test-project
+npm install
+npm run dev
+```
+
+## Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Development
+
+```bash
+# Fork and clone the repository
+git clone https://github.com/YOUR_USERNAME/computelabs-template.git
+
+# Create a feature branch
+git checkout -b feature/amazing-feature
+
+# Make changes and test
+node test-templates.js
+
+# Submit a pull request
+```
+
+## Documentation
+
+- [Testing Guide](TESTING.md) - Comprehensive testing procedures
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute
+- [Architecture](CLAUDE.md) - Technical architecture for AI assistants
+- [PRD](docs/enhanced_template_prd.md) - Product requirements document
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/compute-labs/computelabs-template/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/compute-labs/computelabs-template/discussions)
+- **Email**: support@computelabs.com
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Next.js team for the amazing framework
+- Vercel for hosting and deployment
+- Solana Labs for blockchain infrastructure
+- OpenAI, Anthropic, and Google for AI capabilities
+- The open-source community for invaluable contributions
+
+---
+
+Built with ❤️ by [Compute Labs](https://computelabs.com) 

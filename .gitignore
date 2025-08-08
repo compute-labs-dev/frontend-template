@@ -1,29 +1,82 @@
 # Dependencies
 node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# Build files
-*.log
+# Testing
+test-output/
+test-*/
+*.test.js
+coverage/
 
 # Environment variables
 .env
-.env.*
-!.env.example
+.env.local
+.env.production
+.env.development
+.env.test
 
-# IDE specific
-.idea/
+# IDE
 .vscode/
-/docs
-
-# OS specific
+.idea/
+*.swp
+*.swo
+*.swn
 .DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
-# Optional directory for built templates if we decide to pre-build them
-/dist
-/out
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Temporary files
+*.tmp
+*.temp
+tmp/
 temp/
-*.tmp 
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*

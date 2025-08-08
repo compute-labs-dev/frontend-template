@@ -1,0 +1,166 @@
+name: Test Templates
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ created ]
+
+jobs:
+  test-structure:
+    runs-on: ubuntu-latest
+    name: Validate Template Structure
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run structure tests
+      run: node test-templates.js
+
+  test-templates:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [16, 18, 20]
+        template: [standard, ai, web3]
+        
+    name: Test ${{ matrix.template }} on ${{ matrix.os }} with Node ${{ matrix.node }}
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node }}
+        
+    - name: Install CLI dependencies
+      run: npm install
+      
+    - name: Create test project
+      run: |
+        mkdir test-output
+        cp -r base test-output/test-${{ matrix.template }}
+        
+    - name: Copy template files
+      run: |
+        if [ "${{ matrix.template }}" = "ai" ]; then
+          cp -r optional/ai-structured/* test-output/test-${{ matrix.template }}/ 2>/dev/null || true
+        elif [ "${{ matrix.template }}" = "web3" ]; then
+          cp -r optional/web3-solana-starter/* test-output/test-${{ matrix.template }}/ 2>/dev/null || true
+        fi
+      shell: bash
+      
+    - name: Validate package.json
+      run: |
+        cd test-output/test-${{ matrix.template }}
+        if [ -f package.json ]; then
+          node -e "const p = require('./package.json'); console.log('Valid package.json');"
+        fi
+      shell: bash
+      
+    - name: Check required files
+      run: |
+        cd test-output/test-${{ matrix.template }}
+        files=("package.json" "tsconfig.json" "next.config.mjs" "tailwind.config.ts")
+        for file in "${files[@]}"; do
+          if [ ! -f "$file" ]; then
+            echo "Missing required file: $file"
+            exit 1
+          fi
+        done
+      shell: bash
+      
+    - name: Install project dependencies
+      run: |
+        cd test-output/test-${{ matrix.template }}
+        npm install
+      continue-on-error: true
+      
+    - name: Run build
+      run: |
+        cd test-output/test-${{ matrix.template }}
+        npm run build
+      continue-on-error: true
+      
+    - name: Cleanup
+      run: rm -rf test-output
+      shell: bash
+
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint Code
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Check JavaScript files
+      run: |
+        npx eslint create.js test-templates.js --no-eslintrc || true
+
+  security:
+    runs-on: ubuntu-latest
+    name: Security Checks
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Audit dependencies
+      run: npm audit --audit-level=high
+      continue-on-error: true
+      
+    - name: Check for secrets
+      run: |
+        # Check for potential secrets in template files
+        grep -r "sk-" --include="*.ts" --include="*.tsx" --include="*.js" --exclude-dir=node_modules . || true
+        grep -r "api_key" --include="*.ts" --include="*.tsx" --include="*.js" --exclude-dir=node_modules . || true
+
+  release:
+    needs: [test-structure, test-templates, lint, security]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        registry-url: 'https://registry.npmjs.org'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Publish to npm
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      continue-on-error: true

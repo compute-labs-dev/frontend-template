@@ -1,10 +1,13 @@
 {
-  "name": "company-template-cli",
+  "name": "create-computelabs-app",
   "version": "1.0.0",
-  "description": "CLI to scaffold new projects from company templates",
+  "description": "Create Compute Labs projects with one command",
   "main": "create.js",
+  "bin": {
+    "create-computelabs-app": "./create.js"
+  },
   "scripts": {
-    "start": "node create.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "cli",

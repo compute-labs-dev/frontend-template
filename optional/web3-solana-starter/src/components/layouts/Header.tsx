@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
 import LanguageSelector from '@/components/common/language-selector';
 import { ThemeToggle } from '@/components/navbar/theme-toggle';
 import LogoComponent from '@/components/common/logo';
@@ -8,11 +9,16 @@ import { Button } from '@/components/ui/button';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { formatPublicKey } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { Coins, Home } from 'lucide-react';
 
 function Header() {
   const { publicKey } = useWallet();
   const t = useTranslations('header');
+  const pathname = usePathname();
   const [popoverOpen, setPopoverOpen] = useState(false);
+
+  const isSwapPage = pathname?.includes('/swap');
 
   return (
       <header className='header relative z-50 w-full border-b border-gray-200 bg-background py-2 dark:border-gray-200'>
@@ -41,7 +47,21 @@ function Header() {
         </div>
 
         <div className='page-margin relative z-10 flex h-[50px] items-center justify-between md:h-[58px] lg:h-[70px]'>
-          <LogoComponent />
+          <div className='flex items-center gap-8'>
+            <LogoComponent />
+            
+            {/* Navigation Links */}
+            <nav className='hidden md:flex items-center gap-6'>
+              <Link href='/' className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary ${!isSwapPage ? 'text-primary' : 'text-muted-foreground'}`}>
+                <Home className='h-4 w-4' />
+                Home
+              </Link>
+              <Link href='/swap' className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary ${isSwapPage ? 'text-primary' : 'text-muted-foreground'}`}>
+                <Coins className='h-4 w-4' />
+                Token Swap
+              </Link>
+            </nav>
+          </div>
 
           <div className='hidden items-center gap-4 md:flex'>
             <LanguageSelector />
