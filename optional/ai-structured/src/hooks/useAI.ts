@@ -56,7 +56,7 @@ export function useAI() {
 
           const decoder = new TextDecoder();
           
-          async function* streamGenerator() {
+          const streamGenerator = async function* () {
             while (true) {
               const { done, value } = await reader.read();
               if (done) break;

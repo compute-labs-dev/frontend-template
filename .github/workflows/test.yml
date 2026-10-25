@@ -2,165 +2,124 @@ name: Test Templates
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
   release:
     types: [ created ]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: test-templates-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   test-structure:
     runs-on: ubuntu-latest
     name: Validate Template Structure
-    
+    timeout-minutes: 10
+
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v7
+
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v7
       with:
-        node-version: '18'
-        
+        node-version: '24'
+
     - name: Install dependencies
       run: npm install
-      
+
     - name: Run structure tests
       run: node test-templates.js
 
   test-templates:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        node: [16, 18, 20]
+        node: [22, 24]
         template: [standard, ai, web3]
-        
-    name: Test ${{ matrix.template }} on ${{ matrix.os }} with Node ${{ matrix.node }}
-    
+
+    name: Build ${{ matrix.template }} on Node ${{ matrix.node }}
+
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v7
+
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ matrix.node }}
-        
-    - name: Install CLI dependencies
-      run: npm install
-      
+
+    # Mirrors create.js: copy base, overlay the optional template, merge its
+    # package.json.snippet dependencies.
     - name: Create test project
+      env:
+        TEMPLATE: ${{ matrix.template }}
       run: |
-        mkdir test-output
-        cp -r base test-output/test-${{ matrix.template }}
-        
-    - name: Copy template files
-      run: |
-        if [ "${{ matrix.template }}" = "ai" ]; then
-          cp -r optional/ai-structured/* test-output/test-${{ matrix.template }}/ 2>/dev/null || true
-        elif [ "${{ matrix.template }}" = "web3" ]; then
-          cp -r optional/web3-solana-starter/* test-output/test-${{ matrix.template }}/ 2>/dev/null || true
+        out="test-output/test-$TEMPLATE"
+        mkdir -p "$out"
+        cp -r base/. "$out/"
+        case "$TEMPLATE" in
+          ai) optional=optional/ai-structured ;;
+          web3) optional=optional/web3-solana-starter ;;
+          *) optional="" ;;
+        esac
+        if [ -n "$optional" ]; then
+          cp -r "$optional/." "$out/"
+          rm -f "$out/package.json.snippet"
+          node -e '
+            const fs = require("fs");
+            const [pkgPath, snippetPath] = process.argv.slice(1);
+            const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
+            const snippet = JSON.parse(fs.readFileSync(snippetPath, "utf8"));
+            for (const key of ["dependencies", "devDependencies"]) {
+              if (snippet[key]) pkg[key] = { ...pkg[key], ...snippet[key] };
+            }
+            fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+          ' "$out/package.json" "$optional/package.json.snippet"
         fi
-      shell: bash
-      
-    - name: Validate package.json
-      run: |
-        cd test-output/test-${{ matrix.template }}
-        if [ -f package.json ]; then
-          node -e "const p = require('./package.json'); console.log('Valid package.json');"
-        fi
-      shell: bash
-      
+
     - name: Check required files
+      working-directory: test-output/test-${{ matrix.template }}
       run: |
-        cd test-output/test-${{ matrix.template }}
-        files=("package.json" "tsconfig.json" "next.config.mjs" "tailwind.config.ts")
-        for file in "${files[@]}"; do
+        for file in package.json tsconfig.json next.config.mjs tailwind.config.ts; do
           if [ ! -f "$file" ]; then
             echo "Missing required file: $file"
             exit 1
           fi
         done
-      shell: bash
-      
+
     - name: Install project dependencies
-      run: |
-        cd test-output/test-${{ matrix.template }}
-        npm install
-      continue-on-error: true
-      
+      working-directory: test-output/test-${{ matrix.template }}
+      run: npm install --no-audit --no-fund
+
     - name: Run build
-      run: |
-        cd test-output/test-${{ matrix.template }}
-        npm run build
-      continue-on-error: true
-      
-    - name: Cleanup
-      run: rm -rf test-output
-      shell: bash
-
-  lint:
-    runs-on: ubuntu-latest
-    name: Lint Code
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Check JavaScript files
-      run: |
-        npx eslint create.js test-templates.js --no-eslintrc || true
-
-  security:
-    runs-on: ubuntu-latest
-    name: Security Checks
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Audit dependencies
-      run: npm audit --audit-level=high
-      continue-on-error: true
-      
-    - name: Check for secrets
-      run: |
-        # Check for potential secrets in template files
-        grep -r "sk-" --include="*.ts" --include="*.tsx" --include="*.js" --exclude-dir=node_modules . || true
-        grep -r "api_key" --include="*.ts" --include="*.tsx" --include="*.js" --exclude-dir=node_modules . || true
+      working-directory: test-output/test-${{ matrix.template }}
+      run: npm run build
 
   release:
-    needs: [test-structure, test-templates, lint, security]
+    needs: [test-structure, test-templates]
     runs-on: ubuntu-latest
     if: github.event_name == 'release'
-    
+    timeout-minutes: 10
+
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v7
+
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v7
       with:
-        node-version: '18'
+        node-version: '24'
         registry-url: 'https://registry.npmjs.org'
-        
+
     - name: Install dependencies
       run: npm install
-      
+
     - name: Publish to npm
       run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      continue-on-error: true

@@ -141,7 +141,7 @@ export class AIService {
     return requestedModel;
   }
 
-  private async trackStreamingUsage(
+  private trackStreamingUsage(
     stream: AsyncIterable<string>,
     model?: string
   ): AsyncIterable<string> {
